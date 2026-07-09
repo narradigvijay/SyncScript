@@ -1,4 +1,5 @@
-# CodeX - Code Collaboration Platform
+# sync script
+- Code Collaboration Platform
 
 <div align="center">
   <a href="https://codex.dulapahv.dev/">
