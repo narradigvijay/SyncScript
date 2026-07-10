@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="YOUR_DEPLOYMENT_URL">
-    <img src="apps/client/public/images/cover.png" width="630" alt="SyncScript cover image"/>
+    
   </a>
 </div>
 
