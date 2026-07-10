@@ -1,30 +1,26 @@
-# sync script
-- Code Collaboration Platform
+# SyncScript - Code Collaboration Platform
 
 <div align="center">
-  <a href="https://codex.dulapahv.dev/">
-    <img src="apps/client/public/images/cover.png" width="630" alt="codex cover image"/>
+  <a href="YOUR_DEPLOYMENT_URL">
+    <img src="apps/client/public/images/cover.png" width="630" alt="SyncScript cover image"/>
   </a>
 </div>
 
 <br />
 
 <div align="center">
-  <a href="https://github.com/dulapahv/CodeX/actions/workflows/playwright.yml"><img src="https://github.com/dulapahv/CodeX/actions/workflows/playwright.yml/badge.svg"></a>
-  <a href="https://github.com/dulapahv/CodeX/actions/workflows/jest.yml"><img src="https://github.com/dulapahv/CodeX/actions/workflows/jest.yml/badge.svg"></a>
+  <a href="https://github.com/YOUR_GITHUB_USERNAME/SyncScript/actions/workflows/playwright.yml"><img src="https://github.com/YOUR_GITHUB_USERNAME/SyncScript/actions/workflows/playwright.yml/badge.svg"></a>
+  <a href="https://github.com/YOUR_GITHUB_USERNAME/SyncScript/actions/workflows/jest.yml"><img src="https://github.com/YOUR_GITHUB_USERNAME/SyncScript/actions/workflows/jest.yml/badge.svg"></a>
 </div>
 <div align="center">
-  <a href="https://github.com/dulapahv/CodeX/issues"><img src="https://img.shields.io/github/issues/dulapahv/CodeX.svg?style=flat" /></a>
-<!--   <a href="https://codeclimate.com/github/dulapahv/CodeX/maintainability"><img src="https://api.codeclimate.com/v1/badges/3984a19491b5e90cfa08/maintainability" /></a> -->
+  <a href="https://github.com/YOUR_GITHUB_USERNAME/SyncScript/issues"><img src="https://img.shields.io/github/issues/YOUR_GITHUB_USERNAME/SyncScript.svg?style=flat" /></a>
 </div>
 
 <br />
 
-**CodeX is an online code collaboration platform that enables real-time coding, cursor sharing, live UI preview, and video communication with integrated Git support—no sign-up required.**
+**SyncScript is an online code collaboration platform that enables real-time coding, cursor sharing, live UI preview, and video communication with integrated Git support—no sign-up required.**
 
-**✨ Try now at [codex.dulapahv.dev](https://codex.dulapahv.dev/)**
-
-> This project is part of the course "COMPSCI4025P Level 4 Individual Project" at the University of Glasgow.
+**✨ Try now at [YOUR_DEPLOYMENT_URL](YOUR_DEPLOYMENT_URL)**
 
 For detailed usage instructions and feature documentation, please see the **[User Manual](manual.md)**.
 
@@ -39,7 +35,7 @@ For detailed usage instructions and feature documentation, please see the **[Use
 
 ## Table of Contents
 
-- [CodeX - Code Collaboration Platform](#codex---code-collaboration-platform)
+- [SyncScript - Code Collaboration Platform](#syncscript---code-collaboration-platform)
   - [Features](#features)
   - [Table of Contents](#table-of-contents)
   - [Project Structure](#project-structure)
@@ -63,7 +59,7 @@ For detailed usage instructions and feature documentation, please see the **[Use
 The project is organized as a [monorepo](https://en.wikipedia.org/wiki/Monorepo) using [Turborepo](https://turbo.build/repo/docs):
 
 ```txt
-CodeX
+SyncScript
 ├── apps/                   # Application packages
 │   ├── client/             # Frontend Next.js application
 │   │   ├── public/         # Static assets
@@ -84,281 +80,3 @@ CodeX
 ├── scripts/                # Build and maintenance scripts
 ├── package.json            # Root package.json
 └── pnpm-workspace.yaml     # PNPM workspace configuration
-```
-
-## Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- [Node.js](https://nodejs.org/en/) (v18 or higher)
-- [pnpm](https://pnpm.io) (v6 or higher)
-
-If you don't have `pnpm` installed, you can install it globally:
-
-```bash
-npm install -g pnpm
-```
-
-## Getting Started
-
-After checking the [prerequisites](#prerequisites) above, follow these steps to set up the project:
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/dulapahv/CodeX.git
-   cd CodeX
-   ```
-
-2. **Install dependencies**
-
-   This will install all dependencies for the frontend and backend applications:
-
-   ```bash
-   pnpm install
-   ```
-
-   > Note: Git hooks will be automatically installed via Husky when running `pnpm install`
-
-3. **Environment setup**
-
-    Create `apps/client/.env` using the template from `apps/client/.env.example`:
-
-    ```bash
-    PISTON_API_KEY=
-    BETTERSTACK_API_KEY=
-    SENTRY_AUTH_TOKEN=
-    GITHUB_CLIENT_SECRET_PROD=
-    GITHUB_CLIENT_SECRET_DEV=
-    SENTRY_SUPPRESS_TURBOPACK_WARNING="1"
-    TURBO_TEAM=
-    TURBO_TOKEN=
-    ```
-
-    > Note: This is a personal project and the required API keys and secrets are not publicly shared. For local development, you'll need to set up your own credentials for GitHub OAuth, Sentry, etc.
-
-## Development
-
-To start the development server for both the frontend and backend applications:
-
-```bash
-pnpm dev
-```
-
-You can also start them individually:
-
-```bash
-# Start only the client
-pnpm --filter client dev
-
-# Start only the server
-pnpm --filter server dev
-```
-
-The application will be available at:
-
-- Frontend: <http://localhost:3000>
-- Backend: <http://localhost:3001>
-
-## Test
-
-All test commands can be run from both the root directory and their respective workspaces.
-
-### Frontend Test
-
-Both the frontend server and the backend server will start automatically. To run the frontend tests:
-
-```bash
-# In root directory or client workspace
-pnpm test:client            # Run all frontend E2E tests
-pnpm test:client:ui         # Run frontend tests with UI mode
-pnpm test:client:debug      # Debug frontend tests
-pnpm test:client:report     # View frontend test report
-
-# Run in client workspace only
-pnpm --filter client test:client
-```
-
-### Backend Test
-
-The backend server will start automatically. To run the backend tests:
-
-```bash
-# In root directory or server workspace
-pnpm test:server            # Run backend tests against local server
-pnpm test:server:remote     # Run backend tests against remote server
-pnpm test:server:watch      # Run backend tests in watch mode (local server)
-
-# Run in server workspace only
-pnpm --filter server test:server
-```
-
-## Build
-
-This project is configured to build both the frontend and backend applications together with caching from Turborepo. To build the entire project:
-
-```bash
-pnpm build
-```
-
-However, you can also build them individually:
-
-```bash
-# Build frontend
-pnpm build:client
-
-# Build backend
-pnpm build:server
-```
-
-The build artifacts of the frontend will be available in the `apps/client/.next` directory, and the backend will be available in the `apps/server/dist` directory.
-
-## Deployment
-
-The project is configured for automatic deployment through Deploy Hooks which trigger after the GitHub Actions CI/CD pipeline completes successfully:
-
-- Frontend (client): Automatically deploys to [Vercel](https://vercel.com)
-- Backend (server): Automatically deploys to [Render](https://render.com)
-
-## Scripts
-
-These are the available scripts in the project:
-
-```bash
-# Development
-pnpm dev                    # Start all applications in development mode
-pnpm build                  # Build all packages
-pnpm build:client           # Build frontend
-pnpm build:server           # Build backend
-pnpm clean                  # Clean all builds, caches, test results, and node_modules
-
-# Testing
-pnpm test:client            # Run frontend E2E tests (Playwright)
-pnpm test:client:ui         # Run frontend tests with UI mode
-pnpm test:client:debug      # Debug frontend tests
-pnpm test:client:report     # View frontend test report
-pnpm test:server            # Run backend tests against local server
-pnpm test:server:remote     # Run backend tests against remote server
-pnpm test:server:watch      # Run backend tests in watch mode (local server)
-
-# Linting and Formatting
-pnpm check                  # Check for linting and formatting issues
-pnpm fix                    # Fix linting and formatting issues
-```
-
-You can also run scripts in the specific workspaces
-
-> Note: This will not use Turborepo caching
-
-```bash
-# Frontend specific
-pnpm --filter client dev
-pnpm --filter client build
-pnpm --filter client test:e2e
-
-# Backend specific
-pnpm --filter server dev
-pnpm --filter server build
-pnpm --filter server test:socket
-```
-
-## Tech Stack
-
-- **Frontend:**
-  - [Next.js](https://nextjs.org)
-  - [TypeScript](https://www.typescriptlang.org)
-  - [Tailwind CSS](https://tailwindcss.com)
-  - [shadcn/ui](https://ui.shadcn.com/)
-  - [Monaco Editor](https://microsoft.github.io/monaco-editor/) (code editor)
-  - [Socket.IO Client](https://socket.io)
-  - [MDXEditor](https://mdxeditor.dev/) (notepad)
-  - [simple-peer](https://github.com/feross/simple-peer) (WebRTC)
-  - [Radix Form](https://www.radix-ui.com/primitives/docs/components/form) (form validation)
-- **Backend:**
-  - [Node.js](https://nodejs.org)
-  - [TypeScript](https://www.typescriptlang.org)
-  - [Socket.IO](https://socket.io) (binded to [µWebSockets.js](https://github.com/uNetworking/uWebSockets.js) server)
-- **Testing:**
-  - [Playwright](https://playwright.dev) (end-to-end testing for frontend)
-  - [Jest](https://jestjs.io) (unit testing for backend)
-  - [CodeQL](https://codeql.github.com/) (security analysis)
-- **Code Quality:**
-  - [Ultracite](https://ultracite.js.org/) + [Biome](https://biomejs.dev/) (linting and formatting)
-  - [Husky](https://typicode.github.io/husky/) (git hooks)
-  - [commitlint](https://commitlint.js.org/) (commit message linting)
-- **Build & DevOps:**
-  - [Turborepo](https://turbo.build/repo/docs) (monorepo build system)
-  - [GitHub Actions](https://github.com/features/actions) (CI/CD)
-  - [Vercel](https://vercel.com) (frontend deployment)
-  - [Render](https://render.com) (backend deployment)
-- **Monitoring & Analytics:**
-  - [Sentry](https://sentry.io) (error tracking)
-  - [Vercel Analytics](https://vercel.com/docs/analytics) (web analytics)
-  - [Cloudflare Web Analytics](https://developers.cloudflare.com/web-analytics/) (web analytics)
-  - [Better Stack](https://betterstack.com/) (uptime monitoring and status page)
-- **External Services:**
-  - [Piston](https://github.com/engineer-man/piston) (code execution)
-  - [GitHub REST API](https://docs.github.com/en/rest) (repository management)
-
-## Coding Style
-
-We use several tools to maintain code quality:
-
-- [Ultracite](https://ultracite.js.org/) + [Biome](https://biomejs.dev/) for linting and formatting
-- [Husky](https://typicode.github.io/husky/) for Git hooks
-- [lint-staged](https://github.com/okonet/lint-staged) for running checks on staged files
-- [commitlint](https://commitlint.js.org/) for commit message linting
-
-Check and fix code style:
-
-```bash
-pnpm check                  # Check for linting and formatting issues
-pnpm fix                    # Fix linting and formatting issues
-```
-
-## Contributing
-
-Contributions are welcome! To contribute to this project, follow these steps:
-
-1. Create a new branch for your feature:
-
-   ```bash
-   git checkout -b feat/your-feature-name
-    ```
-
-2. Commit your changes following **[Conventional Commits](https://conventionalcommits.org/)**:
-
-    ```bash
-    git commit -m "<type>(<optional-scope>): <description>"
-    ```
-
-    - `<type>`: Must be one of:
-
-      - `feat`: New features (e.g., "feat: add user authentication")
-      - `fix`: Bug fixes (e.g., "fix: resolve memory leak")
-      - `docs`: Documentation changes (e.g., "docs: update API guide")
-      - `style`: Code style changes (e.g., "style: fix indentation")
-      - `refactor`: Code refactoring (e.g., "refactor: simplify auth logic")
-      - `perf`: Performance improvements (e.g., "perf: optimize database queries")
-      - `test`: Adding/updating tests (e.g., "test: add unit tests for auth")
-      - `chore`: Routine tasks/maintenance (e.g., "chore: update dependencies")
-      - `ci`: CI/CD changes (e.g., "ci: add GitHub Actions workflow")
-      - `revert`: Revert previous changes (e.g., "revert: remove broken feature")
-
-    <br />
-
-    > For a complete commit message guidelines, see **[Conventional Commits](https://conventionalcommits.org/)**.
-
-3. Push your changes and submit a Pull Request with a description of your changes:
-
-    ```bash
-    git push origin feat/your-feature-name
-    ```
-
-## User Manual
-
-For detailed usage instructions and feature documentation, please refer to the **[User Manual](manual.md)**.
-
-## License
-
-Apache-2.0 License - see the [LICENSE](LICENSE) file for details.
