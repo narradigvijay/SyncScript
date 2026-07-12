@@ -9,9 +9,7 @@
  */
 
 const ALLOWED_ORIGINS = [
-  "https://codex.dulapahv.dev",
-  "https://codex.vercel.app",
-  "https://dev-codex.dulapahv.dev",
+  "https://sync-script-client.vercel.app",
   "http://localhost:3000",
 ] as const;
 
